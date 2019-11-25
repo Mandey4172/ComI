@@ -114,7 +114,6 @@ namespace ComI
                 foreach (VCCodeElement codeElement in codeElements)
                 {
                     Debug.WriteLine(codeElement.FullName.ToString());
-                    VCInsertSnippetHelper.InsertSnippet(codeElement, "LOL");
                 }
                 Debug.WriteLine("");
             }
