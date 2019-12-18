@@ -26,6 +26,8 @@ namespace ComI
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [Guid(ComIPackage.PackageGuidString)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
+    [ProvideOptionPage(typeof(SettingsPage),
+    "ComI", "General", 0, 0, true)]
     public sealed class ComIPackage : AsyncPackage
     {
         /// <summary>
