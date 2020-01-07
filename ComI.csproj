@@ -48,8 +48,13 @@
     <Compile Include="Commands\DocumentCommand.cs" />
     <Compile Include="Core\CommentsInserter.cs" />
     <Compile Include="Core\SelectionFinder.cs" />
+    <Compile Include="Core\SettingsStorage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ComIPackage.cs" />
+    <Compile Include="Resources\Dictionary.xaml.cs">
+      <DependentUpon>Dictionary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SettingsProperties.cs" />
     <Compile Include="Settings\SettingsControl.xaml.cs">
       <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
@@ -100,6 +105,9 @@
     <Content Include="Resources\DocumentCommand.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Dictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
     <Page Include="Settings\SettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using ComI.Core;
+using ComI.Resources;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
@@ -110,11 +111,10 @@ namespace ComI
             if (await ServiceProvider.GetServiceAsync(typeof(DTE)) is DTE2 projectModel)
             {
                 List<VCCodeElement> codeElements = VCSelectionFinder.GetSelectedCodeElements(projectModel);
-                Debug.WriteLine("");
                 foreach (VCCodeElement codeElement in codeElements)
                 {
-                    Debug.WriteLine(codeElement.FullName.ToString());
-                    VCCommentsInserter.InsertCommentForCodeElement(codeElement, "Test: LOL");
+                    string comment = SettingsStorage.ReadProperty(SettingsProperties.documentMacroData);
+                    VCCommentsInserter.InsertCommentForCodeElement(codeElement, comment);
                 }
                 Debug.WriteLine("");
             }
