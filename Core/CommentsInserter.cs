@@ -13,12 +13,11 @@ namespace ComI.Core
         public static void InsertCommentForCodeElement(VCCodeElement codeElement, string snippetText)
         {
             Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
+
             EditPoint elementStartPoint = codeElement.StartPointOf[vsCMPart.vsCMPartWholeWithAttributes, vsCMWhere.vsCMWhereDeclaration].CreateEditPoint();
             EditPoint elementEndPoint = codeElement.EndPointOf[vsCMPart.vsCMPartWholeWithAttributes, vsCMWhere.vsCMWhereDeclaration].CreateEditPoint();
-
             EditPoint insertPoint = elementStartPoint.CreateEditPoint();
 
-            insertPoint.Insert("\n");
             InsertSingleComment(insertPoint, snippetText);
             elementStartPoint.SmartFormat(elementEndPoint);
         }
